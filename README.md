@@ -18,7 +18,7 @@ Before starting, ensure you have the following:
 
 In this workshop, we develop a main agent that processes user queries related to Lilian Weng's work on Large Language Models (LLMs). The agent utilizes tools to retrieve relevant documents and mechanisms to refine user queries, enhancing the quality of responses based on available content. This approach demonstrates how modifying the agent's state history can improve response quality.
 
-The **retrieve** tool accesses external content stored in a vector store, complete with metadata describing its capabilities. If necessary, the **rewrite** agent reformulates the user prompt to better align with the application's purpose and available content, facilitating more effective document retrieval.
+The **retrieve** tool accesses external content stored in a vector store, complete with metadata describing its capabilities. If necessary, the **rewrite** agent reformulates the user prompt to better align with the application's purpose and available content, facilitating more effective document retrieval. Subsequent to any **rewrite**, agent `messages` state is wiped to trigger a new **retrieve** based only generated prompt.
 
 ### Running in Jupyter Notebook
 
