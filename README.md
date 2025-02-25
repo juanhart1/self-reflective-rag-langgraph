@@ -1,32 +1,34 @@
-# Multi-agent RAG with LangGraph Workshop
+# Multi-agent Self-Reflective RAG with LangGraph Workshop
 
-This repository provides the resources and instructions for a hands-on workshop focused on using LangGraph to create and orchestrate a number of agents and respective tooling for them to utilize in order to achieve a task. The workshop is designed to guide participants through the process of building a basic agentic application.
+This repository offers resources and instructions for a hands-on workshop centered on utilizing LangGraph to develop and orchestrate multiple agents, each equipped with specific tools to accomplish tasks. The workshop guides participants through building a basic agentic application employing the Self-Reflective Retrieval-Augmented Generation (Self-RAG) pattern, as outlined by LangChain. ([blog.langchain.dev](https://blog.langchain.dev/agentic-rag-with-langgraph/?utm_source=chatgpt.com))
 
 ## Prerequisites
 
-In general, you should have the following already:
+Before starting, ensure you have the following:
 
-- **Azure OpenAI Resource**: Need to also have the endpoint URL and API get ready.
-- **GPT-4o Model Deployed**: In the OpenAI resource, deploy the latest GPT-4o model with standard deployment. Not the deployment name as you'll need it later.
+- **Azure OpenAI Resource**: Have your endpoint URL and API key ready.
+- **GPT-4o Model Deployed**: Deploy the latest GPT-4o model with standard deployment in your OpenAI resource. Note that you'll need the deployment name for later use.
 - **VS Code**: Install Visual Studio Code.
 
 ## Executing the Agentic Application
 
-### What we're building
+### Overview
 
 ![diagram.png](diagram.png)
 
-We have a main agent that takes a user query related to Lilian Weng's work on LLMs. There are tools that are available to use to answer the question and also mechanisms to rewrite the user question to provide a better answer based on available content. It also showcases how history state can be modified in order to improve response quality.
+In this workshop, we develop a main agent that processes user queries related to Lilian Weng's work on Large Language Models (LLMs). The agent utilizes tools to retrieve relevant documents and mechanisms to refine user queries, enhancing the quality of responses based on available content. This approach demonstrates how modifying the agent's state history can improve response quality.
 
-The tool **retrieve** has content from external sources that is stored as a vector store and has metadata to describe it's capabilities.
+The **retrieve** tool accesses external content stored in a vector store, complete with metadata describing its capabilities. If necessary, the **rewrite** agent reformulates the user prompt to better align with the application's purpose and available content, facilitating more effective document retrieval.
 
-If needed, rewrite agent will rewrite the user prompt to be more aligned with the purpose of this application and available content, if possible, so that documents can be retrieved.
+### Running in Jupyter Notebook
 
-### Run in Jupyter Notebook
-
-1. Go to the **self-reflective_rag.ipynb** file
-2. Next, hover over the top code block and press the *play* button that shows up on the top-left edge of that block. It will now prompt you to paste in your Azure OpenAI API key into a pop-up in the top-middle of VS Code. The lecture will contain guidance for what the blocks do and the implemented concepts of a graph-RAG pattern as implemented with the LangGraph framework.
+1. Open the **self-reflective_rag.ipynb** file.
+2. Hover over the top code block and click the *play* button that appears at the top-left corner of the block. This action will prompt you to enter your Azure OpenAI API key in a pop-up within VS Code. The notebook provides guidance on the function of each block and the implementation of the Self-Reflective RAG pattern using the LangGraph framework.
 
 ## Conclusion
 
-By the end of this workshop, you now have hands-on experience building and modifying flows in prompt flow, and you know how to evaluate their performance using a testing dataset.
+By the end of this workshop, you will have gained hands-on experience in building and modifying flows within prompt flow. Additionally, you will have learned how to evaluate their performance using a testing dataset.
+
+For a visual walkthrough of implementing Self-RAG with LangGraph, you might find the following video tutorial helpful:
+
+[Adaptive RAG with Self-Reflection: Part-1](https://www.youtube.com/watch?v=8UZCmQ8hP9c&utm_source=chatgpt.com)
